@@ -22,12 +22,11 @@ greeting_message = "Thank you for choosing us to help plan your upcoming trip."
 
 print(greeting_message)
 
-ending_message = "We hope you enjoy your trip!"
 
 trip_destinations = ["Oklahoma City", "New York", "Miami"]
 restaurant_type_for_trip = ["Italian", "Mexican", "Indian"]
 transportation_for_trip = ["Bus", "Uber","Car Rental"]
-entertainment_for_trip = ["Bar", "Movies", ""]
+entertainment_for_trip = ["Bar", "Movies", "Nght Club"]
 
 destination = random.choice(trip_destinations)
 restaurant = random.choice(restaurant_type_for_trip)
@@ -41,22 +40,21 @@ print(day_trip)
 confirm_choice = input("Please enter yes/no to confirm these travel options. ")
 
 def new_dest(confirm_choice):  
-    while confirm_choice != "yes":
+    while confirm_choice == "no":
         destination = random.choice(trip_destinations)
-        confirm_choice 
-        if input == "no":
-            destination.remove(trip_destinations)
+        confirm_choice = input(f"We are sorry that the previous option did not work for you. We have selected {destination} as another place to go. Does this work for you?")
+        if input == "yes":
+            trip_destinations.remove(destination)
         else:
             print(f"You have selected {destination} as the destination for your trip. ")
     return trip_destinations
-
 new_dest(confirm_choice)
 
 def new_restaurant(confirm_choice):  
-    while confirm_choice != "yes":
+    while confirm_choice == "no":
         restaurant = random.choice(restaurant_type_for_trip)
         confirm_choice = input(f"We are sorry that the previous option did not work for your. We have seleceted {restaurant} as another place to eat. Does this work for you? ")
-        if input == "no":
+        if input == "yes":
             restaurant.remove(restaurant_type_for_trip)
         else:
             print(f"You have selected {restaurant} as the best place to eat during your trip. ")
@@ -64,10 +62,10 @@ def new_restaurant(confirm_choice):
 new_restaurant(confirm_choice)
 
 def new_trans(confirm_choice):  
-    while confirm_choice != "yes":
+    while confirm_choice == "no":
         transportation = random.choice(transportation_for_trip)
         confirm_choice = input(f"We are sorry that the previous option did not work for your. We have seleceted {transportation} as the best way to travel. Does this work for you? ")
-        if input == "no":
+        if input == "yes":
             transportation.remove(transportation_for_trip)
         else:
             print(f"You have selected {transportation} as a way to get around. ")
@@ -75,14 +73,15 @@ def new_trans(confirm_choice):
 new_trans(confirm_choice)
 
 def new_entertainment(confirm_choice):  
-    while confirm_choice != "yes":
+    while confirm_choice == "no":
         entertainment = random.choice(entertainment_for_trip)
         confirm_choice = input(f"We are sorry that the previous option did not work for your. We have seleceted {entertainment} as a fun activity to do. Does this work for you? ") 
-        if input == "no":
+        if input == "yes":
             entertainment.remove(entertainment_for_trip)
         else:
             print(f"You have selected {entertainment} as a fun activity for you to do while on your trip. ")
     return entertainment_for_trip
 new_entertainment(confirm_choice)
 
+ending_message = (f"For your trip we have confirmed that you are going to travel to {destination}, the type of food you want to eat will be {restaurant}, you will have {transportation} and your nightly activity will be {entertainment}. Thank you.")
 print(ending_message)
